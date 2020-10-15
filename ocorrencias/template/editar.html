@@ -1,0 +1,25 @@
+
+{% block content %}
+    <div class="post">
+        {% if ocorrencia.dataCriacao %}
+            <div class="date">
+                {{ ocorrencia.dataCriacao }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'ocorrencia_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h2>{{ ocorrencia.descricao }}</h2>
+        <h2>{{ ocorrencia.localizacao }}</h2>
+        <h2>{{ ocorrencia.autor }}</h2>
+        <h2>{{ ocorrencia.descricao }}</h2>
+        <h2>{{ ocorrencia.estado }}</h2>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <h2>Editar Ocorrência</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ editar_form.as_p }}
+        <button type="submit" class="save btn btn-default">Filtrar</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+    {% load staticfiles %}
+    	<title>ubiwhere</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static "css/main.css" %}"/>
+        {% load staticfiles %}
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<nav id="nav">
+						<ul>
+							<li><a href="../../" class="button">Voltar</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<section id="main" class="container 75%">
+					<header>
+						<h2>Registar</h2>
+					</header>
+					<div class="box">
+                        {% if registado == True %}
+                            O Utilizador já está registado
+                        {% endif %}
+						<form method="post" action="/autor/registar/">
+							<div class="row uniform 50%">
+								<div class="12u">
+									{{ user_form.as_p }}
+								</div>
+							</div>
+
+							<div class="row uniform">
+								<div class="12u">
+									<ul class="actions align-center">
+										<li><input type="submit" value="Registar" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+		</div>
+	</body>
+</html>

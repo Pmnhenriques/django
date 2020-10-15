@@ -1,0 +1,41 @@
+<section class="box">
+<h3>Ocorrências</h3>
+{% if not ocorrencias %}
+  Não Existem Ocorrencias
+{% else %}
+
+
+{% block content %}
+    <h2>Registar Ocorrência</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ filtro_form.as_p }}
+        <button type="submit" class="save btn btn-default">Filtrar</button>
+    </form>
+{% endblock %}
+
+<div class="table-wrapper">
+<table>
+  <thead>
+    <tr>
+      <th>Categoria</th>
+      <th>Estado</th>
+      <th>Descriçao</th>
+      <th>Localização</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      {% for ocorrencia in ocorrencias %}
+    <tr>
+      <td>{{ ocorrencia.categoria}}</td>
+      <td>{{ ocorrencia.estado}}</td>
+      <td>{{ ocorrencia.descricao}}</td>
+      <td>{{ ocorrencia.localizacao}}</td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+</div>
+{% endif %}
+</section>
